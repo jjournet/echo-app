@@ -47,7 +47,7 @@ jobs:
           file: ./docker/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/jjournet/echo-app/echo-app:${{ steps.gitversion.outputs.fullSemVer }}
+          tags: echo-app/echo-app:${{ steps.gitversion.outputs.fullSemVer }}
       - name: Update Image version in value file
         run: |
           echo "Updating image version in values.yaml"
