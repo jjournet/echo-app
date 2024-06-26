@@ -27,7 +27,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.acrname }}/jjournet/echo-app/echo-app:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.acrname }}/echo-app:{{ .Values.image.tag }}"
           # image: "westus3devjeepacr.azurecr.io/echo-app:latest"
           # image: "{{ .Values.image.acrname }}/apps/echo-app/echo-app:latest"
           imagePullPolicy: {{ .Values.image.pullPolicy }}

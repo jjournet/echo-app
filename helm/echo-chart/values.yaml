@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   pullPolicy: Always
-  acrname: "ghcr.io"
+  acrname: "docker.io"
   tag: "latest"
 
 imagePullSecrets: []
