@@ -1,5 +1,5 @@
 # Start with Golang image to build src/
-FROM golang:1.22.2-alpine AS builder
+FROM --platform=linux/arm64 golang:1.22.2-alpine AS builder
 
 COPY src/ /src/
 WORKDIR /src
