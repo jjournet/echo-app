@@ -8,9 +8,9 @@ on:
 
 permissions:
   id-token: write
-  contents: read
+  contents: write
   packages: write
-
+  attestations: write
 
 jobs:
   build:
@@ -48,7 +48,6 @@ jobs:
           platforms: linux/arm64
           push: true
           tags: ghcr.io/jjournet/echo-app/echo-app:${{ steps.gitversion.outputs.fullSemVer }}
-          github-token: ${{ secrets.GH_TOKEN }}
       - name: Update Image version in value file
         run: |
           echo "Updating image version in values.yaml"
