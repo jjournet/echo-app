@@ -14,7 +14,7 @@ type app_info struct {
 }
 
 func getAppInfo(c *gin.Context) {
-	uuid := "49443942"
+	uuid := "123123123"
 	// if UUID is defined as an environment variable, replace the value
 	if nuuid := os.Getenv("UUID"); nuuid != "" {
 		uuid = nuuid
