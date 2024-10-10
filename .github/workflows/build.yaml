@@ -14,8 +14,12 @@ permissions:
 
 jobs:
   build:
-    # runs-on: [self-hosted, x64, linux]
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+      packages: write
+      attestations: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
