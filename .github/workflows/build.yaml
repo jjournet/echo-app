@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: [ ubuntu-latest, amd64 ]
+    runs-on: ubuntu-latest
     permissions:
       id-token: write
       contents: write
@@ -49,11 +49,9 @@ jobs:
         with:
           context: .
           file: ./docker/Dockerfile
-          platforms: linux/arm64
+          platforms: linux/amd64
           push: true
           tags: ghcr.io/jjournet/echo-app/echo-app:${{ steps.gitversion.outputs.fullSemVer }}
-      #    secrets: |
-      #      GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
       - name: Update Image version in value file
         run: |
           echo "Updating image version in values.yaml"
