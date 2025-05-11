@@ -1,0 +1,42 @@
+name: parameter
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_param_number:
+        description: 'Test parameter'
+        required: true
+        type: number
+      test_param_string:
+        description: 'Test parameter'
+        required: true
+        type: string
+
+
+permissions:
+  id-token: write
+  contents: write
+  packages: write
+  attestations: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+      packages: write
+      attestations: write
+    steps:
+      - name: echo
+        run: |
+          echo "Test parameter number is ${{ github.event.inputs.test_param_number }}"
+          echo "Test parameter string is ${{ github.event.inputs.test_param_string }}"
+      - name: wait
+        run : |
+          echo "Waiting for 120 seconds..."
+          sleep 10
+      - name: fail
+        run: |
+          echo "This job is expected to fail"
+          exit -1
