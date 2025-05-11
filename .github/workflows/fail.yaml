@@ -1,0 +1,28 @@
+name: build
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: write
+  packages: write
+  attestations: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+      packages: write
+      attestations: write
+    steps:
+      - name: wait
+        run : |
+          echo "Waiting for 60 seconds..."
+          sleep 10
+      - name: fail
+        run: |
+          echo "This job is expected to fail"
+          exit -1
